@@ -1,5 +1,7 @@
 GEM
+  remote: https://rubygems.org/
   specs:
+    mysql2 (0.4.2)
     rack (1.6.0)
     rack-protection (1.5.0)
       rack
@@ -13,4 +15,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mysql2
   sinatra
+
+BUNDLED WITH
+   1.11.2
