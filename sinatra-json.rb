@@ -17,12 +17,18 @@ end
 
 post '/events' do
   temperature = params[:temperature]
+  json = false
   if request.content_type == 'application/json'
+    json = true
     params_json = JSON.parse(request.body.read)
     temperature = params_json['temperature']
   end
   Event.create(temperature: temperature)
-  redirect '/events/new'
+  if json
+    status 200
+  else
+    redirect '/events/new'
+  end
 end
 
 get '/events' do
