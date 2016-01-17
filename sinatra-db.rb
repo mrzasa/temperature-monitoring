@@ -9,7 +9,8 @@ end
 post '/events' do
   temperature = db.escape(params[:temperature])
   time = Time.now.utc.strftime("%Y-%m-%d %H:%M:%S")
-  query = "INSERT INTO events (temperature, created_at) VALUES(#{temperature}, '#{time}')"
+  query = "INSERT INTO events (temperature, created_at) 
+    VALUES(#{temperature}, '#{time}')"
   db.query(query)
   redirect '/events/new'
 end
@@ -20,8 +21,9 @@ get '/events' do
 end
 
 def db
-  @client ||= Mysql2::Client.new(:host => "localhost", 
-                                 :database =>"prz_events", 
-                                 :username =>ENV["DB_USER"], 
-                                 :password =>ENV["DB_PASS"])
+  @client ||= Mysql2::Client.new(
+    :host => "localhost", 
+    :database =>"prz_events",
+    :username =>ENV["DB_USER"],
+    :password =>ENV["DB_PASS"])
 end

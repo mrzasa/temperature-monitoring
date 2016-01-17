@@ -5,8 +5,9 @@ get '/events/new' do
 end
 
 post '/events' do
+  temperature = params[:temperature]
   File.open('temperature.txt', 'a+') do |f|
-    f.puts "#{Time.now} temperature=#{params[:temperature]}"
+    f.puts "#{Time.now} temperature=#{temperature}"
   end
   redirect '/events/new'
 end

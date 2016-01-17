@@ -2,11 +2,12 @@ require 'sinatra'
 require 'active_record'
 require 'pry'
 
-ActiveRecord::Base.establish_connection(:adapter => 'mysql2',
-                                        :host => "localhost", 
-                                        :database =>"prz_events", 
-                                        :username =>ENV["DB_USER"], 
-                                        :password =>ENV["DB_PASS"])
+ActiveRecord::Base.establish_connection(
+  :adapter => 'mysql2',
+  :host => "localhost", 
+  :database =>"prz_events", 
+  :username =>ENV["DB_USER"], 
+  :password =>ENV["DB_PASS"])
 
 class Event < ActiveRecord::Base
 end
