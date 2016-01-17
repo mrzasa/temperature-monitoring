@@ -1,7 +1,7 @@
 require 'sinatra'
 
 get '/events/new' do
-  File.read('event_form.html')
+  File.read('views/event_form.html')
 end
 
 post '/events' do
