@@ -22,6 +22,7 @@ post '/events' do
 end
 
 get '/events' do
-  events = Event.all
+  temp = params[:temp]
+  events = Event.where('temperature > ?', temp)
   erb :events_ar, locals: { events: events }
 end

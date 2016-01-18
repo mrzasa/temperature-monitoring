@@ -3,7 +3,9 @@
   <body>
   <h1> Events </h1>
   <% events.each do |event|%>
-    <%= event.created_at %>: <%= event.temperature %> <br />
+    <%= event['created_at'] %>: <%= event['temperature'] %> <br />
   <% end %>
   </body>
 </html>
+
+
